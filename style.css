@@ -1,0 +1,56 @@
+.css-selector {
+   font-family: Gamja Flower, cursive;
+}
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #dabc90;
+}
+
+header {
+    font-family: Gamja Flower, cursive;
+    background: #bca3bf;
+    font-size: larger;
+    color: white;
+    padding: 20px;
+}
+
+h2 {
+    font-family: Zain, cursive;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+p {
+    font-family: PlayPen, cursive;
+    font-size: 16px;
+    color: #000000;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+}
+
+.project {
+    background: #ffffff;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+footer {
+    background: #dabc90;
+    color: white;
+    padding: 10px;
+}
+
+h2.title {
+    font-family: zain, cursive;
+    font-size: 40px;
+    color: #75e3f1;
+    animation-timing-function: ease-in-out linear(0, 1.2 50%, 0.75 80%, 1);
+    animation: color-change 10s infinite;
+    text-shadow: 2px 2px 2px #7e7a7a;
+}
