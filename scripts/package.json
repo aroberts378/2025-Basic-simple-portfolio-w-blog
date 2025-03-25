@@ -1,0 +1,26 @@
+{
+  "name": "2025-basic-simple-portfolio-w-blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tailwind:init": "tailwindcss init"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aroberts378/2025-Basic-simple-portfolio-w-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aroberts378/2025-Basic-simple-portfolio-w-blog/issues"
+  },
+  "homepage": "https://github.com/aroberts378/2025-Basic-simple-portfolio-w-blog#readme",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.15"
+  }
+}
