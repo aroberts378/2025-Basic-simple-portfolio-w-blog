@@ -1,4 +1,9 @@
 import './styles.css';
+import UIkit from 'uikit';
+import Icons from 'uikit/dist/js/uikit-icons';
+
+// Load UIkit icons
+UIkit.use(Icons);
 
 document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
