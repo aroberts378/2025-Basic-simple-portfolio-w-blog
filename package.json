@@ -1,0 +1,32 @@
+{
+  "name": "angelica-portfolio",
+  "version": "1.0.0",
+  "description": "Angelica's Full-Stack Developer Portfolio",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "daisyui": "^4.0.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24",
+    "tailwindcss": "^4.0.0",
+    "vite": "^7.0.0"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aroberts378/2025-Basic-simple-portfolio-w-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/aroberts378/2025-Basic-simple-portfolio-w-blog/issues"
+  },
+  "homepage": "https://github.com/aroberts378/2025-Basic-simple-portfolio-w-blog#readme"
+}

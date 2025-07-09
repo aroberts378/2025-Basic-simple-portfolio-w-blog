@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 1) Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Neucha&family=Playpen+Sans&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- 2) Tailwind CDN + custom theme -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'fox-pink': '#FFB3C1',
+            'fox-orange': '#FF9F5B',
+            'fox-purple': '#6B5B95',
+            'fox-teal': '#4DB6AC',
+            'soft-beige':'#F9F6F0',
+            'warm-gray':'#7D7D7D',
+            'fox-red': '#FF6B6B',
+            'fox-sky': '#A0D8E6',
+            'soft-blue': '#A0C4FF',
+            'soft-green': '#B2E4B2',
+            'soft-yellow': '#FFF5BA',
+            'fox-rose': '#F4C2C2',
+            'fox-lavender': '#E6E6FA',
+            'fox-mint': '#B2F2BB',
+            'fox-sand': '#F5F5DC',
+            'fox-pearl': '#EAEAEA',
+          },
+          fontFamily: {
+            header:     ['"Gamja Flower"', 'cursive'],
+            subheader:  ['"Neucha"', 'cursive'],
+            paragraph:  ['"Playpen Sans"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+<!-- 3) DaisyUI itself -->
+<script src="https://cdn.jsdelivr.net/npm/daisyui@4"></script>
+<title>FoxTech Portfolio</title>
+</head>
+<body class="bg-soft-beige text-warm-gray font-paragraph">
+
+<header class="py-4 px-4 sm:px-6 bg-gradient-to-r from-rose-100 via-orange-100 to-green-100">
+  <div class="mx-auto w-full max-w-screen-xl px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+    <!-- Logo + Menu Button -->
+    <div class="flex items-center justify-between space-x- mb-4 sm:mb-0 w-full sm:w-auto">
+      <div class="flex items-center space-x-4">
+        <img src="/portfolio-website/assets/canva folder/canva images/logo.png" alt="" class="w-20 h-20" />
+        <span class="font-header text-4xl">FoxTech</span>
+      </div>
+      <button id="menu-btn" class="sm:hidden focus:outline-none p-2">
+        <!-- Hamburger icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+        </svg>
+
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <!-- X icon, hidden by default -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="size-6 sm-hidden hidden" id="icon-close">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+  
+  <!-- (your search & desktop nav here…) -->
+
+
+  <!-- Search: full-width on mobile, fixed width on desktop -->
+    <div class="w-full sm:w-1/3 lg:w-1/4 px-4">
+      <input
+        id="search-input"
+        type="text"
+        placeholder="Search…"
+        aria-label="Search projects"
+        class="w-full px-4 py-2 rounded-full shadow focus:outline-none"/>
+    </div>
+
+    <!-- Nav links: hidden on mobile, flex on sm+ -->
+     <div>
+     <nav class="flex justify-center sm:justify-end space-x-8 font-subheader hidden sm:flex sm:ml-10 mt-4 sm:mt-0 items-center text-fox-purple">
+      <a href="#about" class="hover:text-fox-orange text-2xl transform transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:scale-105">About</a>
+      <a href="#projects" class="hover:text-fox-teal text-2xl transform transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:scale-105">Projects</a>
+      <a href="#blog" class="hover:text-fox-pink text-2xl transform transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:scale-105">Blog</a>
+      <a href="#contact" class="hover:text-soft-green text-2xl transform transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:scale-105">Contact</a>
+    </nav>
+
+  </div>
+
+  <!-- Mobile nav panel (hidden by default) -->
+  <nav id="mobile-nav" class="sm:hidden hidden px-4 pb-4 space-y-2 font-subheader text-gray-700">
+    <a href="#about" class="block">About</a>
+    <a href="#projects" class="block">Projects</a>
+    <a href="#blog" class="block">Blog</a>
+    <a href="#contact" class="block">Contact</a>
+  </nav>
+</header>
+
+<script> 
+  const btn       = document.getElementById('menu-btn');
+  const nav       = document.getElementById('mobile-nav');
+  const iconOpen  = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  btn.addEventListener('click', () => {
+    // show/hide mobile nav
+    nav.classList.toggle('hidden');
+    // swap the icons
+    iconOpen.classList.toggle('hidden');
+    iconClose.classList.toggle('hidden');
+  });
+</script>
+
+<!-- End of file: header.html -->
+
+  <!-- just to show it works -->
+  <main class="p-5 mt-20 mb-20 text-center bg-soft-beige">
+    <div class="text-center">
+    <h1 class="text-4xl font-header text-fox-purple">Welcome to</h1>
+    <h1 class="text-6xl font-header text-fox-orange">FoxTech</h1>
+    <h1 class="mt-2 text-4xl font-header text-fox-purple">DEV PORTFOLIO</h1>
+    </div>
+  </main>
+
+<!-- HERO -->
+<section id="hero" class="relative w-full h-screen overflow-hidden">
+  <!-- 3D canvas -->
+  <iframe
+    src= "https://my.spline.design/aitester-ofg8ZoRGzlvXsHL3YDn59HWS/"
+    frameborder="0"
+    allowfullscreen
+    class="flex absolute inset-0 w-full h-full"
+  ></iframe>
+
+  <div class="hero-content absolute z-20 flex flex-col items-left text-align-left px-10 py-10 md:py-20">
+    <div class="max-w-md">
+      <h1 class="text-4xl md:text-6xl font-header text-fox-orange mb-4 drop-shadow">
+        Hi, I’m Angelica!👋🏾
+      </h1>
+      <h2 class="text-5xl text-fox-purple font-subheader mb-2">
+        Full-stack dev</h2>
+      <p class="text-2xl text-warm-grey leading-relaxed mb-7">
+      creative technologist <br> blending code, design,<br> with a little ADHD magic.
+      </p>
+      <a href="#projects" class="bg-fox-purple hover:bg-fox-teal text-white font-semibold py-3 px-6 rounded-xl shadow transition-all duration-300">
+        View My Projects
+      </a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- End of file: hero.html -->
+
+<!-- ABOUT -->
+<section id="about" class="py-20" style="background-color: #E6E6FA;">
+  <div class="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center">
+    <!-- Text block -->
+    <div class="w-full md:w-1/2 mt-8 md:mt-0">
+      <h2 class="text-5xl font-header mb-4 text-fox-orange ">About Me</h2>
+      <p class="font-body text-lg text-warm-grey mb-6">
+         I'm a passionate developer who loves creating beautiful, responsive websites and apps. Currently
+        building my portfolio and sharpening my full-stack skills.
+        I enjoy learning new technologies and sharing my journey through my blog.
+        My goal is to combine my love for coding with my creative side to build innovative solutions that make a difference.
+        I specialize in HTML, CSS, JavaScript, and React, and I'm always eager to learn more.
+        I believe in the power of collaboration and community, and I'm excited to connect with other developers.
+        When I'm not coding, you can find me sewing large and minor projects, reading a good book, or experimenting with
+        different forms of art & designing.
+        Let's connect and create something amazing together!
+      </p>
+       <p class="mb-6 text-md text-fox-purple leading-relaxed italic text-center">
+        TL;DR: I design, I code, I overthink—and I do it all with heart. 💻🧠🌈
+      </p>
+      <ul class="space-y-4">
+        <li class="flex items-center">
+          <!-- Heroicon check -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M5 13l4 4L19 7" />
+          </svg>
+          <span>HTML, CSS &amp; JavaScript wizardry</span>
+        </li>
+        <li class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M5 13l4 4L19 7" />
+          </svg>
+          <span>React &amp; Next.js in progress</span>
+        </li>
+        <li class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Tailwind &amp; Design Systems enthusiast</span>
+        </li>
+      </ul>
+      <a
+        href="#projects"
+        class="mt-6 inline-block px-6 py-2 bg-orange-400 text-white font-semibold rounded-full shadow hover:bg-purple-500 transition"
+      >
+        Check My Work
+      </a>
+    </div>
+
+    <!-- Avatar/Image -->
+    <div class="w-full md:w-1/2 flex justify-center">
+      <img
+        src="/portfolio-website/assets/images/IMG_5646.jpg"
+        alt="Avatar of Angelica"
+        class="w-48 h-48 md:w-56 md:h-56
+    rounded-full ring-4 ring-pink-300 shadow-lg
+    transform transition-transform duration-300 ease-in-out
+    hover:-translate-y-1 hover:scale-105
+  "
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
+<!-- End of file: about.html -->
+
+
+<!-- PROJECTS -->
+<section id="projects" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-header mb-8 text-center text-gray-800">My Projects</h2>
+    <div class="grid gap-6
+                grid-cols-1 
+                sm:grid-cols-2 
+                lg:grid-cols-3">
+      
+      <!-- Example Card -->
+      <div class="group bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <a href="#">
+          <img
+            src="/portfolio-website/assets/images/komarov-egor-W74cfpKKy80-unsplash.jpg"
+            alt="Screenshot of Project Name"
+            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <div class="p-6">
+            <h3 class="font-subheader text-2xl mb-2 text-gray-800 group-hover:text-fox-pink transition-colors duration-200">
+              JOB BOARD APP
+            </h3>
+            <p class="font-paragraph text-gray-600 mb-4"> 
+              Users can post jobs, apply, and manage their profiles.
+            </p>
+            <span class="inline-block font-subheader text-fox-pink underline">
+              View Details →
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <!--project 2 -->
+       <div class="group bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <a href="#">
+          <img
+            src="/portfolio-website/assets/images/muhammad-salim-5J3G5E6Brgg-unsplash.jpg"
+            alt="Screenshot of Project Name"
+            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <div class="p-6">
+            <h3 class="font-subheader text-2xl mb-2 text-gray-800 group-hover:text-fox-pink transition-colors duration-200">
+              E-COMMERCE STORE
+            </h3>
+            <p class="font-paragraph text-gray-600 mb-4">
+              A fully functional e-commerce site with product listings, cart, and checkout.
+            </p>
+            <span class="inline-block font-subheader text-fox-pink underline">
+              View Details →
+            </span>
+          </div>
+        </a>
+      </div>
+<!--project 3 -->
+      <div class="group bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <a href="#">
+          <img
+            src="/portfolio-website/assets/images/team-nocoloco-YRUj8BENrVQ-unsplash.jpg"
+            alt="Screenshot of Project Name"
+            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <div class="p-6">
+            <h3 class="font-subheader text-2xl mb-2 text-gray-800 group-hover:text-fox-pink transition-colors duration-200">
+              SOCIAL MEDIA APP
+            </h3>
+            <p class="font-paragraph text-gray-600 mb-4">
+              A social platform for users to connect, share posts, and interact with each other.
+            </p>
+            <span class="inline-block font-subheader text-fox-pink underline">
+              View Details →
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End of file: projects.html -->
+
+<!-- BLOG -->
+<section id="blog" class="py-16 px-6 bg-white">
+  <div class="max-w-4xl mx-auto text-center">
+    <!-- Section Title -->
+    <h2 class="text-4xl font-header text-fox-orange mb-8">
+      Blog
+    </h2>
+    <!-- Posts Grid -->
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Blog Post Card -->
+      <article class="card bg-soft-beige shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 ease-in-out
+      hover:-translate-y-1 hover:scale-105">
+        <figure>
+          <img src="https://picsum.photos/400/300?random=3" alt="Post title image 1" class="w-full h-48 object-cover"/>
+        </figure>
+        <div class="card-body">
+          <h3 class="font-subheader text-fox-purple text-2xl mb-2">
+            How I Built My First Vue Component
+          </h3>
+          <p class="font-paragraph text-warm-gray mb-4 leading-relaxed">
+            A quick dive into my process of learning Vue, from setup to deployment—and how it sparked my passion for reactive interfaces.
+          </p>
+          <a href="/blog/vue-component" class="btn btn-sm btn-primary font-subheader">
+            Read More
+          </a>
+        </div>
+      </article>
+
+      <!--second post -->
+      <article class="card bg-soft-beige shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 ease-in-out
+    hover:-translate-y-1 hover:scale-105">
+        <figure>
+          <img src="https://picsum.photos/400/300?random=2" alt="Post title image 2" class="w-full h-48 object-cover"/>
+        </figure>
+        <div class="card-body">
+          <h3 class="font-subheader text-fox-purple text-2xl mb-2">
+            Mindful Coding: Staying Sane with ADHD
+          </h3>
+          <p class="font-paragraph text-warm-gray mb-4 leading-relaxed">
+            Tips and tools I use every day to keep burnout at bay—featuring my new “Code & Calm” meditation.
+          </p>
+          <a href="/blog/mindful-coding" class="btn btn-sm btn-primary font-subheader">
+            Read More
+          </a>
+        </div>
+      </article>
+
+  <!--Post 3-->
+   <article class="card bg-soft-beige shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 ease-in-out
+    hover:-translate-y-1 hover:scale-105">
+        <figure>
+          <img src="https://picsum.photos/400/300?random=1" alt="Post title image 3" class="w-full h-48 object-cover"/>
+        </figure>
+        <div class="card-body">
+          <h3 class="font-subheader text-fox-purple text-2xl mb-2">
+            Html, CSS, and JavaScript: The Holy Trinity of Web Development
+          </h3>
+          <p class="font-paragraph text-warm-gray mb-4 leading-relaxed">
+            A deep dive into the foundational technologies that power the web, and how I use them to create stunning user experiences.
+          </p>
+          <a href="/blog/mindful-coding" class="btn btn-sm btn-primary font-subheader">
+            Read More
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- End of file: blog.html -->
+
+<!-- CONTACT -->
+<section id="contact" class="py-16 px-6 bg-soft-beige">
+  <div class="max-w-md mx-auto text-center">
+    <!-- Section Title -->
+    <h2 class="text-4xl font-header text-fox-purple mb-6">
+      Get In Touch
+    </h2>
+    <!-- Contact Form -->
+    <form class="space-y-4">
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text font-subheader text-fox-purple">Your Name</span>
+        </label>
+        <input
+          type="text"
+          placeholder="First Last"
+          class="input input-bordered w-full font-paragraph text-warm-gray"
+        />
+      </div>
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text font-subheader text-fox-purple">Your Email</span>
+        </label>
+        <input
+          type="email"
+          placeholder="you@example.com"
+          class="input input-bordered w-full font-paragraph text-warm-gray"
+        />
+      </div>
+      <div class="form-control">
+        <label class="label">
+          <span class="label-text font-subheader text-fox-purple">Message</span>
+        </label>
+        <textarea
+          placeholder="Hi Angelica, I’d love to chat about..."
+          class="textarea textarea-bordered w-full h-32 font-paragraph text-warm-gray"
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-block btn-primary font-subheader mt-4"
+      >
+        Send Message
+      </button>
+    </form>
+    <!-- Social Links -->
+    <div class="mt-8 flex justify-center space-x-6">
+      <a href="https://github.com/aroberts378" class="text-2xl text-fox-purple hover:text-fox-teal transition-all">🐱‍💻</a>
+      <a href="https://linkedin.com/in/aroberts378" class="text-2xl text-fox-purple hover:text-fox-teal transition-all">🔗</a>
+      <a href="mailto:ggfoxtech758@gmail.com" class="text-2xl text-fox-purple hover:text-fox-teal transition-all">✉️</a>
+    </div>
+  </div>
+</section>
+<!-- End of file: contact.html -->
+
+
+<!--Store front widget-->
+<section>
+<div class="flex justify-center mt-8">
+<iframe style="border-radius:24px;border:none" src="https://embed.creator-spring.com/widget?slug=my-store-109ea3f&per=10&currency=&page=1&layout=carousel-wide&theme=light" title="my-store-109ea3f Merch store powered by Spring" width="100%" height="420" data-reactroot="">NEED SOMETHING TO WEAR?</iframe>
+ </div>
+ </section>
+
+<!-- Footer -->
+<footer class="bg-fox-purple text-white py-6">
+  <div class="max-w-3xl mx-auto text-center">
+    <p class="font-paragraph text-sm mb-2">© 2025 Angelica R. All rights reserved.</p>
+    <p class="font-paragraph text-xs">Built with ❤️ using HTML, CSS, and JavaScript</p>
+    <div class="flex justify-center space-x-4 mt-4">
+      <a href="#" class="text-white hover:text-fox-orange transition-all">Twitter</a>
+      <a href="#" class="text-white hover:text-fox-orange transition-all">GitHub</a>
+      <a href="#" class="text-white hover:text-fox-orange transition-all">LinkedIn</a>
+    </div>
+  </div>
+
+<!--Script Section Below-->
+<script>
+  // Grab the input and all project cards by class
+  const input = document.getElementById('search-input');
+  const cards = document.querySelectorAll('.project-card');
+
+  // On every keystroke, hide/show cards
+  input.addEventListener('input', () => {
+    const term = input.value.trim().toLowerCase();
+    cards.forEach(card => {
+      const title = card
+        .querySelector('h3')      // assumes your card title is <h3>
+        .textContent
+        .toLowerCase();
+      card.style.display = title.includes(term) ? '' : 'none';
+    });
+  });
+</script>
+
+<script>
+  const themeToggle = document.getElementById('theme-toggle');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    themeToggle.textContent = document.body.classList.contains('dark') ? '🌚' : '😄';
+  });
+</script>
+
+<script>
+  const toggleBtn = document.getElementById('theme-toggle');
+  const htmlEl = document.documentElement;
+
+  // Sound effect
+  const clickSound = new Audio('assets/cheerful-click.mp3');
+
+  const spin = () => {
+    toggleBtn.classList.add('animate-spinOnce');
+    setTimeout(() => {
+      toggleBtn.classList.remove('animate-spinOnce');
+    }, 600);
+  };
+
+  const updateTheme = (isDark) => {
+    toggleBtn.textContent = isDark ? '🌚' : '😄';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  };
+
+  // Init: apply saved theme
+  if (localStorage.getItem('theme') === 'dark') {
+    htmlEl.classList.add('dark');
+    updateTheme(true);
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    const isDark = htmlEl.classList.toggle('dark');
+    spin();
+    clickSound.play(); 
+    clickSound.volume = 0.3 // 💥 Play sound on toggle
+    updateTheme(isDark);
+  });
+</script>
+
+</body>
+</html>
+<!--End of file: index.html-->
